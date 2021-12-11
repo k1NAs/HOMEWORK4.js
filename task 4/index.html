@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 4</title>
+</head>
+
+<body>
+	<script>
+
+		function showUser(id) {
+			if (id < 0) {
+				throw new Error('ID must not be negative:' + " " + id);
+			}
+			return { id: id };
+		}
+
+		function showUsers(ids) {
+			let result = [];
+			ids.forEach(function (id) {
+				try {
+					let user = showUser(id);
+					result.push(user);
+				} catch (exception) {
+					console.log(exception.message);
+				}
+			});
+			console.log(result);
+		}
+		showUsers([7, 44, 22, 55, 100, 3, 7]);
+
+	</script>
+</body>
+
+</html>

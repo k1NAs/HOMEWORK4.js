@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 1</title>
+</head>
+
+<body
+	style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; font-family: Roboto, sans-serif;"">
+
+	<h1 style=" margin: 20px;">Rectangle area calculator</h1>
+
+	<div style="margin: 10px;">
+		Height: <input type="text" id="height" value="">
+	</div>
+
+	<div style="margin: 10px;">
+		Width: <input type="text" id="width" value="">
+	</div>
+
+	<div style="margin: 10px;">
+		<button style="background-color: #43e0e0;">Calculate</button>
+	</div>
+
+	<div style="margin: 10px;">
+		Result: <input type="text" id="result" value="">
+	</div>
+
+	<script>
+
+		document.querySelector('button').onclick = function showAreaValue() {
+			let height = document.querySelector('#height').value;
+			let width = document.querySelector('#width').value;
+			let result;
+
+
+			function calcRectangleArea(width, height) {
+				let result = width * height;
+				if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+					throw new Error("Your value is not a number or negative number, please enter a positive numeric value!");
+				}
+				return result;
+			}
+			try {
+				document.querySelector('#result').value = calcRectangleArea(width, height);
+			} catch (exception) {
+				alert(exception.name);
+				alert(exception.message);
+				alert(exception.stack);
+			}
+		}
+	</script>
+</body>
+
+</html>

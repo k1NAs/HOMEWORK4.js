@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2</title>
+</head>
+
+<body>
+
+	<script>
+
+		function checkAge() {
+			try {
+				let userAge = prompt("Before you start watching the movie, enter your age to make sure you are 14 years old");
+				if (userAge === null || userAge.trim() === "") {
+					throw new Error("You have entered an empty value, please enter a numeric value");
+				} else if (userAge < 14) {
+					throw new Error("You are too yong for watching this movie, grow up first");
+				} else if (isNaN(parseInt(userAge))) {
+					throw new Error("Please enter a numeric value");
+				}
+				alert("You have reached the desired age to watch this movie, enjoy watching");
+			}
+			catch (exception) {
+				alert(exception.name);
+				alert(exception.message);
+			}
+		}
+		checkAge();
+
+	</script>
+
+
+</body>
+
+</html>
